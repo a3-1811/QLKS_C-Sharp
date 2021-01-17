@@ -34,6 +34,8 @@ namespace QUANLYKHACHSAN.Model
 
         public DateTime? NgayTraDuKien { get; set; }
 
+        public DateTime? NgayTra { get; set; }
+
         public virtual PHIEU_THUE_PHONG PHIEU_THUE_PHONG { get; set; }
 
         public virtual PHONG PHONG { get; set; }

@@ -321,6 +321,7 @@
             // iconBtnDatPhong
             // 
             this.iconBtnDatPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconBtnDatPhong.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.iconBtnDatPhong.FlatAppearance.BorderSize = 0;
             this.iconBtnDatPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconBtnDatPhong.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -330,13 +331,13 @@
             this.iconBtnDatPhong.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconBtnDatPhong.IconSize = 35;
             this.iconBtnDatPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconBtnDatPhong.Location = new System.Drawing.Point(759, 30);
+            this.iconBtnDatPhong.Location = new System.Drawing.Point(847, 30);
             this.iconBtnDatPhong.Name = "iconBtnDatPhong";
-            this.iconBtnDatPhong.Size = new System.Drawing.Size(225, 55);
+            this.iconBtnDatPhong.Size = new System.Drawing.Size(137, 55);
             this.iconBtnDatPhong.TabIndex = 43;
             this.iconBtnDatPhong.Text = "Đặt Phòng";
             this.iconBtnDatPhong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconBtnDatPhong.UseVisualStyleBackColor = true;
+            this.iconBtnDatPhong.UseVisualStyleBackColor = false;
             this.iconBtnDatPhong.Click += new System.EventHandler(this.iconBtnDatPhong_Click);
             // 
             // frmPhieuthue
