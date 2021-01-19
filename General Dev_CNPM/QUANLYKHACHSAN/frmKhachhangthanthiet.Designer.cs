@@ -31,13 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKhachhangthanthiet));
             this.gridControlKhachhangthanthiet = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.MaKhachHang = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TenKhachHang = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SoLuotDen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LoaiHoiVien = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TongHoaDon = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DienThoai = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.GhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMaKhachHang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTenKhachHang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoLuotDen = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLoaiHoiVien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTongHoaDon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDienThoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
@@ -70,10 +69,10 @@
             this.gridControlKhachhangthanthiet.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlKhachhangthanthiet.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridControlKhachhangthanthiet.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gridControlKhachhangthanthiet.Location = new System.Drawing.Point(12, 29);
             this.gridControlKhachhangthanthiet.MainView = this.gridView1;
-            this.gridControlKhachhangthanthiet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridControlKhachhangthanthiet.Margin = new System.Windows.Forms.Padding(2);
             this.gridControlKhachhangthanthiet.Name = "gridControlKhachhangthanthiet";
             this.gridControlKhachhangthanthiet.Size = new System.Drawing.Size(859, 464);
             this.gridControlKhachhangthanthiet.TabIndex = 7;
@@ -83,86 +82,81 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.MaKhachHang,
-            this.TenKhachHang,
-            this.SoLuotDen,
-            this.LoaiHoiVien,
-            this.TongHoaDon,
-            this.DienThoai,
-            this.GhiChu});
+            this.colMaKhachHang,
+            this.colTenKhachHang,
+            this.colSoLuotDen,
+            this.colLoaiHoiVien,
+            this.colTongHoaDon,
+            this.colDienThoai});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControlKhachhangthanthiet;
             this.gridView1.Name = "gridView1";
             // 
-            // MaKhachHang
+            // colMaKhachHang
             // 
-            this.MaKhachHang.Caption = "Mã Khách Hàng";
-            this.MaKhachHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("MaKhachHang.ImageOptions.Image")));
-            this.MaKhachHang.MinWidth = 19;
-            this.MaKhachHang.Name = "MaKhachHang";
-            this.MaKhachHang.Visible = true;
-            this.MaKhachHang.VisibleIndex = 0;
-            this.MaKhachHang.Width = 102;
+            this.colMaKhachHang.Caption = "Mã Khách Hàng";
+            this.colMaKhachHang.FieldName = "MaKhachHang";
+            this.colMaKhachHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colMaKhachHang.ImageOptions.Image")));
+            this.colMaKhachHang.MinWidth = 19;
+            this.colMaKhachHang.Name = "colMaKhachHang";
+            this.colMaKhachHang.Visible = true;
+            this.colMaKhachHang.VisibleIndex = 0;
+            this.colMaKhachHang.Width = 102;
             // 
-            // TenKhachHang
+            // colTenKhachHang
             // 
-            this.TenKhachHang.Caption = "Tên Khách Hàng";
-            this.TenKhachHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("TenKhachHang.ImageOptions.Image")));
-            this.TenKhachHang.MinWidth = 19;
-            this.TenKhachHang.Name = "TenKhachHang";
-            this.TenKhachHang.Visible = true;
-            this.TenKhachHang.VisibleIndex = 1;
-            this.TenKhachHang.Width = 122;
+            this.colTenKhachHang.Caption = "Tên Khách Hàng";
+            this.colTenKhachHang.FieldName = "TenKhachHang";
+            this.colTenKhachHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("TenKhachHang.ImageOptions.Image")));
+            this.colTenKhachHang.MinWidth = 19;
+            this.colTenKhachHang.Name = "colTenKhachHang";
+            this.colTenKhachHang.Visible = true;
+            this.colTenKhachHang.VisibleIndex = 1;
+            this.colTenKhachHang.Width = 122;
             // 
-            // SoLuotDen
+            // colSoLuotDen
             // 
-            this.SoLuotDen.Caption = "Số Lượt Đến";
-            this.SoLuotDen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("SoLuotDen.ImageOptions.Image")));
-            this.SoLuotDen.MinWidth = 19;
-            this.SoLuotDen.Name = "SoLuotDen";
-            this.SoLuotDen.Visible = true;
-            this.SoLuotDen.VisibleIndex = 3;
-            this.SoLuotDen.Width = 100;
+            this.colSoLuotDen.Caption = "Số Lượt Đến";
+            this.colSoLuotDen.FieldName = "SoLuotDen";
+            this.colSoLuotDen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("SoLuotDen.ImageOptions.Image")));
+            this.colSoLuotDen.MinWidth = 19;
+            this.colSoLuotDen.Name = "colSoLuotDen";
+            this.colSoLuotDen.Visible = true;
+            this.colSoLuotDen.VisibleIndex = 3;
+            this.colSoLuotDen.Width = 100;
             // 
-            // LoaiHoiVien
+            // colLoaiHoiVien
             // 
-            this.LoaiHoiVien.Caption = "Loại Hội Viên";
-            this.LoaiHoiVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("LoaiHoiVien.ImageOptions.Image")));
-            this.LoaiHoiVien.MinWidth = 19;
-            this.LoaiHoiVien.Name = "LoaiHoiVien";
-            this.LoaiHoiVien.Visible = true;
-            this.LoaiHoiVien.VisibleIndex = 4;
-            this.LoaiHoiVien.Width = 108;
+            this.colLoaiHoiVien.Caption = "Loại Hội Viên";
+            this.colLoaiHoiVien.FieldName = "LoaiHoiVien";
+            this.colLoaiHoiVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("LoaiHoiVien.ImageOptions.Image")));
+            this.colLoaiHoiVien.MinWidth = 19;
+            this.colLoaiHoiVien.Name = "colLoaiHoiVien";
+            this.colLoaiHoiVien.Visible = true;
+            this.colLoaiHoiVien.VisibleIndex = 4;
+            this.colLoaiHoiVien.Width = 108;
             // 
-            // TongHoaDon
+            // colTongHoaDon
             // 
-            this.TongHoaDon.Caption = "Tổng Hóa Đơn";
-            this.TongHoaDon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("TongHoaDon.ImageOptions.Image")));
-            this.TongHoaDon.MinWidth = 19;
-            this.TongHoaDon.Name = "TongHoaDon";
-            this.TongHoaDon.Visible = true;
-            this.TongHoaDon.VisibleIndex = 5;
-            this.TongHoaDon.Width = 127;
+            this.colTongHoaDon.Caption = "Tổng Hóa Đơn";
+            this.colTongHoaDon.FieldName = "TongHoaDon";
+            this.colTongHoaDon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("TongHoaDon.ImageOptions.Image")));
+            this.colTongHoaDon.MinWidth = 19;
+            this.colTongHoaDon.Name = "colTongHoaDon";
+            this.colTongHoaDon.Visible = true;
+            this.colTongHoaDon.VisibleIndex = 5;
+            this.colTongHoaDon.Width = 127;
             // 
-            // DienThoai
+            // colDienThoai
             // 
-            this.DienThoai.Caption = "Điện Thoại";
-            this.DienThoai.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("DienThoai.ImageOptions.Image")));
-            this.DienThoai.MinWidth = 19;
-            this.DienThoai.Name = "DienThoai";
-            this.DienThoai.Visible = true;
-            this.DienThoai.VisibleIndex = 2;
-            this.DienThoai.Width = 79;
-            // 
-            // GhiChu
-            // 
-            this.GhiChu.Caption = "Ghi Chú";
-            this.GhiChu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("GhiChu.ImageOptions.Image")));
-            this.GhiChu.MinWidth = 19;
-            this.GhiChu.Name = "GhiChu";
-            this.GhiChu.Visible = true;
-            this.GhiChu.VisibleIndex = 6;
-            this.GhiChu.Width = 116;
+            this.colDienThoai.Caption = "Điện Thoại";
+            this.colDienThoai.FieldName = "DienThoai";
+            this.colDienThoai.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("DienThoai.ImageOptions.Image")));
+            this.colDienThoai.MinWidth = 19;
+            this.colDienThoai.Name = "colDienThoai";
+            this.colDienThoai.Visible = true;
+            this.colDienThoai.VisibleIndex = 2;
+            this.colDienThoai.Width = 79;
             // 
             // groupBox1
             // 
@@ -175,9 +169,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(890, 17);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(398, 204);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
@@ -192,7 +186,7 @@
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 41;
             this.iconPictureBox1.Location = new System.Drawing.Point(29, 31);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(41, 42);
             this.iconPictureBox1.TabIndex = 6;
@@ -207,7 +201,7 @@
             this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox3.IconSize = 41;
             this.iconPictureBox3.Location = new System.Drawing.Point(29, 147);
-            this.iconPictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconPictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox3.Name = "iconPictureBox3";
             this.iconPictureBox3.Size = new System.Drawing.Size(41, 42);
             this.iconPictureBox3.TabIndex = 5;
@@ -222,7 +216,7 @@
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox2.IconSize = 41;
             this.iconPictureBox2.Location = new System.Drawing.Point(29, 92);
-            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox2.Name = "iconPictureBox2";
             this.iconPictureBox2.Size = new System.Drawing.Size(41, 42);
             this.iconPictureBox2.TabIndex = 4;
@@ -272,9 +266,9 @@
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(890, 225);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(398, 268);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
@@ -289,7 +283,7 @@
             this.iconPictureBox5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox5.IconSize = 41;
             this.iconPictureBox5.Location = new System.Drawing.Point(26, 185);
-            this.iconPictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconPictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox5.Name = "iconPictureBox5";
             this.iconPictureBox5.Size = new System.Drawing.Size(41, 42);
             this.iconPictureBox5.TabIndex = 9;
@@ -304,7 +298,7 @@
             this.iconPictureBox6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox6.IconSize = 41;
             this.iconPictureBox6.Location = new System.Drawing.Point(26, 105);
-            this.iconPictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconPictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox6.Name = "iconPictureBox6";
             this.iconPictureBox6.Size = new System.Drawing.Size(41, 42);
             this.iconPictureBox6.TabIndex = 8;
@@ -319,7 +313,7 @@
             this.iconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox4.IconSize = 41;
             this.iconPictureBox4.Location = new System.Drawing.Point(26, 36);
-            this.iconPictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconPictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox4.Name = "iconPictureBox4";
             this.iconPictureBox4.Size = new System.Drawing.Size(41, 42);
             this.iconPictureBox4.TabIndex = 7;
@@ -331,7 +325,7 @@
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(71, 185);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(332, 58);
@@ -344,7 +338,7 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(71, 105);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(332, 58);
@@ -357,7 +351,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(71, 36);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(310, 58);
@@ -371,7 +365,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gridControlKhachhangthanthiet);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmKhachhangthanthiet";
             this.Size = new System.Drawing.Size(1311, 535);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlKhachhangthanthiet)).EndInit();
@@ -394,18 +388,17 @@
 
         private DevExpress.XtraGrid.GridControl gridControlKhachhangthanthiet;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn MaKhachHang;
-        private DevExpress.XtraGrid.Columns.GridColumn TenKhachHang;
-        private DevExpress.XtraGrid.Columns.GridColumn SoLuotDen;
-        private DevExpress.XtraGrid.Columns.GridColumn LoaiHoiVien;
-        private DevExpress.XtraGrid.Columns.GridColumn TongHoaDon;
+        private DevExpress.XtraGrid.Columns.GridColumn colMaKhachHang;
+        private DevExpress.XtraGrid.Columns.GridColumn colTenKhachHang;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoLuotDen;
+        private DevExpress.XtraGrid.Columns.GridColumn colLoaiHoiVien;
+        private DevExpress.XtraGrid.Columns.GridColumn colTongHoaDon;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private DevExpress.XtraGrid.Columns.GridColumn DienThoai;
-        private DevExpress.XtraGrid.Columns.GridColumn GhiChu;
+        private DevExpress.XtraGrid.Columns.GridColumn colDienThoai;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;

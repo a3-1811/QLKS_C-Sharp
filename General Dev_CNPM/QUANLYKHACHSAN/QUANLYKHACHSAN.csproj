@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Doanhthu.cs" />
     <Compile Include="frmDangnhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,7 +188,6 @@
     <Compile Include="Model\HOA_DON.cs" />
     <Compile Include="Model\KHACH_HANG.cs" />
     <Compile Include="Model\LOAI_PHONG.cs" />
-    <Compile Include="Model\LOAI_THANH_TOAN.cs" />
     <Compile Include="Model\LOAI_TINH_TRANG.cs" />
     <Compile Include="Model\NGUOI_DUNG.cs" />
     <Compile Include="Model\NHAN_VIEN.cs" />
