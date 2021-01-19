@@ -668,3 +668,9 @@ C:\Users\Admin\Documents\DoAn\QLKS_C-Sharp\General Dev_CNPM\QUANLYKHACHSAN\obj\D
 C:\Users\Admin\Documents\DoAn\QLKS_C-Sharp\General Dev_CNPM\QUANLYKHACHSAN\obj\Debug\QUANLYKHACHSAN.csproj.CopyComplete
 C:\Users\Admin\Documents\DoAn\QLKS_C-Sharp\General Dev_CNPM\QUANLYKHACHSAN\obj\Debug\QUANLYKHACHSAN.exe
 C:\Users\Admin\Documents\DoAn\QLKS_C-Sharp\General Dev_CNPM\QUANLYKHACHSAN\obj\Debug\QUANLYKHACHSAN.pdb
+C:\Users\Admin\Documents\DoAn\QLKS_C-Sharp\General Dev_CNPM\QUANLYKHACHSAN\bin\Debug\DevExpress.XtraPdfViewer.v20.1.dll
+C:\Users\Admin\Documents\DoAn\QLKS_C-Sharp\General Dev_CNPM\QUANLYKHACHSAN\bin\Debug\DevExpress.XtraPdfViewer.v20.1.xml
+C:\Users\Admin\Documents\DoAn\QLKS_C-Sharp\General Dev_CNPM\QUANLYKHACHSAN\bin\Debug\de\DevExpress.XtraPdfViewer.v20.1.resources.dll
+C:\Users\Admin\Documents\DoAn\QLKS_C-Sharp\General Dev_CNPM\QUANLYKHACHSAN\bin\Debug\es\DevExpress.XtraPdfViewer.v20.1.resources.dll
+C:\Users\Admin\Documents\DoAn\QLKS_C-Sharp\General Dev_CNPM\QUANLYKHACHSAN\bin\Debug\ja\DevExpress.XtraPdfViewer.v20.1.resources.dll
+C:\Users\Admin\Documents\DoAn\QLKS_C-Sharp\General Dev_CNPM\QUANLYKHACHSAN\bin\Debug\ru\DevExpress.XtraPdfViewer.v20.1.resources.dll

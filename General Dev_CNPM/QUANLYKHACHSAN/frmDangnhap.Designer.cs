@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangnhap));
             this.label1 = new System.Windows.Forms.Label();
             this.txtDangnhap = new System.Windows.Forms.TextBox();
@@ -37,6 +38,9 @@
             this.iconUserpassword = new FontAwesome.Sharp.IconPictureBox();
             this.icoBtnDangnhap = new FontAwesome.Sharp.IconButton();
             this.icoBtnThoat = new FontAwesome.Sharp.IconButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.lblCountdown = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.icoUsername)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconUserpassword)).BeginInit();
@@ -89,7 +93,7 @@
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 80;
             this.iconPictureBox1.Location = new System.Drawing.Point(16, 29);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(82, 80);
             this.iconPictureBox1.TabIndex = 4;
@@ -154,6 +158,26 @@
             this.icoBtnThoat.UseVisualStyleBackColor = false;
             this.icoBtnThoat.Click += new System.EventHandler(this.icoBtnThoat_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // lblCountdown
+            // 
+            this.lblCountdown.AutoSize = true;
+            this.lblCountdown.BackColor = System.Drawing.Color.Transparent;
+            this.lblCountdown.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountdown.ForeColor = System.Drawing.Color.Red;
+            this.lblCountdown.Location = new System.Drawing.Point(125, 106);
+            this.lblCountdown.Name = "lblCountdown";
+            this.lblCountdown.Size = new System.Drawing.Size(150, 29);
+            this.lblCountdown.TabIndex = 9;
+            this.lblCountdown.Text = "Countdown";
+            // 
             // frmDangnhap
             // 
             this.AcceptButton = this.icoBtnDangnhap;
@@ -162,6 +186,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(588, 373);
+            this.Controls.Add(this.lblCountdown);
             this.Controls.Add(this.icoBtnThoat);
             this.Controls.Add(this.icoBtnDangnhap);
             this.Controls.Add(this.iconUserpassword);
@@ -171,7 +196,7 @@
             this.Controls.Add(this.txtDangnhap);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDangnhap";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -193,5 +218,8 @@
         private FontAwesome.Sharp.IconPictureBox iconUserpassword;
         private FontAwesome.Sharp.IconButton icoBtnDangnhap;
         private FontAwesome.Sharp.IconButton icoBtnThoat;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label lblCountdown;
     }
 }

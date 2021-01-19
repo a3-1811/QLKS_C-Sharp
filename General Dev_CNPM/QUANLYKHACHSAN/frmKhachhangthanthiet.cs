@@ -33,7 +33,6 @@ namespace QUANLYKHACHSAN
             DataSet ds = new DataSet();
             DA.Fill(ds, "Data");
             gridControlKhachhangthanthiet.DataSource = ds.Tables["Data"];
-            
 
             /*
             var list = context.KHACH_HANG.Join
@@ -64,6 +63,5 @@ namespace QUANLYKHACHSAN
                 ).GroupBy(p => new { p.MaKhachHang, p.TenKhachHang, p.DienThoai})
                 .ToList();*/
         }
-      
     }
 }

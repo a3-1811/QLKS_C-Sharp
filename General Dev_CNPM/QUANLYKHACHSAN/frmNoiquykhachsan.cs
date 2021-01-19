@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QUANLYKHACHSAN.Properties;
 
 namespace QUANLYKHACHSAN
 {
@@ -15,6 +16,21 @@ namespace QUANLYKHACHSAN
         public frmNoiquykhachsan()
         {
             InitializeComponent();
+            load();
+        }
+        private void load()
+        {
+            try
+            {
+                //pdfViewer1.NavigationPaneInitialVisibility = false;
+                pdfViewer1.Enabled = true;
+                pdfViewer1.ReadOnly = true;
+                pdfViewer1.LoadDocument(@"..\..\noiquy.pdf");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

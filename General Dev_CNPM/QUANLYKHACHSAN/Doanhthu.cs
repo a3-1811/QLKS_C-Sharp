@@ -8,5 +8,6 @@ namespace QUANLYKHACHSAN
 {
     class Doanhthu
     {
+
     }
 }
