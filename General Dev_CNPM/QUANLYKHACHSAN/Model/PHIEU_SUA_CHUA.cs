@@ -26,7 +26,7 @@ namespace QUANLYKHACHSAN.Model
         public string MaNhanVien { get; set; }
 
         [StringLength(5)]
-        public string MaThietBi { get; set; }
+        public string MaPhong { get; set; }
 
         public string NguyenNhan { get; set; }
 
@@ -37,6 +37,6 @@ namespace QUANLYKHACHSAN.Model
 
         public virtual NHAN_VIEN NHAN_VIEN { get; set; }
 
-        public virtual THIET_BI THIET_BI { get; set; }
+        public virtual PHONG PHONG { get; set; }
     }
 }

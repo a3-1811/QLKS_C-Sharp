@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDatPhongMain));
             this.panel1 = new System.Windows.Forms.Panel();
             this.icoBtnHuy = new FontAwesome.Sharp.IconButton();
-            this.icoBtnSua = new FontAwesome.Sharp.IconButton();
             this.icoBtnDatphong = new FontAwesome.Sharp.IconButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.txtTimphong = new System.Windows.Forms.TextBox();
@@ -64,7 +63,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.icoBtnHuy);
-            this.panel1.Controls.Add(this.icoBtnSua);
             this.panel1.Controls.Add(this.icoBtnDatphong);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 496);
@@ -93,26 +91,6 @@
             this.icoBtnHuy.UseVisualStyleBackColor = true;
             this.icoBtnHuy.Click += new System.EventHandler(this.icoBtnHuy_Click);
             // 
-            // icoBtnSua
-            // 
-            this.icoBtnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.icoBtnSua.FlatAppearance.BorderSize = 0;
-            this.icoBtnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.icoBtnSua.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnSua.ForeColor = System.Drawing.Color.DarkBlue;
-            this.icoBtnSua.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.icoBtnSua.IconColor = System.Drawing.Color.DarkBlue;
-            this.icoBtnSua.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnSua.IconSize = 35;
-            this.icoBtnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icoBtnSua.Location = new System.Drawing.Point(629, 12);
-            this.icoBtnSua.Name = "icoBtnSua";
-            this.icoBtnSua.Size = new System.Drawing.Size(91, 46);
-            this.icoBtnSua.TabIndex = 4;
-            this.icoBtnSua.Text = "Sửa";
-            this.icoBtnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.icoBtnSua.UseVisualStyleBackColor = true;
-            // 
             // icoBtnDatphong
             // 
             this.icoBtnDatphong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -125,7 +103,7 @@
             this.icoBtnDatphong.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icoBtnDatphong.IconSize = 35;
             this.icoBtnDatphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icoBtnDatphong.Location = new System.Drawing.Point(501, 12);
+            this.icoBtnDatphong.Location = new System.Drawing.Point(579, 12);
             this.icoBtnDatphong.Margin = new System.Windows.Forms.Padding(4);
             this.icoBtnDatphong.Name = "icoBtnDatphong";
             this.icoBtnDatphong.Size = new System.Drawing.Size(140, 45);
@@ -133,11 +111,13 @@
             this.icoBtnDatphong.Text = "Đặt Phòng";
             this.icoBtnDatphong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icoBtnDatphong.UseVisualStyleBackColor = true;
+            this.icoBtnDatphong.Click += new System.EventHandler(this.icoBtnDatphong_Click);
             // 
             // txtTimphong
             // 
             this.txtTimphong.AcceptsTab = true;
             this.txtTimphong.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtTimphong.Enabled = false;
             this.txtTimphong.Location = new System.Drawing.Point(19, 422);
             this.txtTimphong.Multiline = true;
             this.txtTimphong.Name = "txtTimphong";
@@ -148,6 +128,7 @@
             // 
             // cboHoTen
             // 
+            this.cboHoTen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHoTen.FormattingEnabled = true;
             this.cboHoTen.Location = new System.Drawing.Point(20, 112);
             this.cboHoTen.Margin = new System.Windows.Forms.Padding(2);
@@ -191,6 +172,7 @@
             this.icoBtnTimphong.TabIndex = 25;
             this.icoBtnTimphong.Text = "Tìm Phòng ";
             this.icoBtnTimphong.UseVisualStyleBackColor = true;
+            this.icoBtnTimphong.Click += new System.EventHandler(this.icoBtnTimphong_Click);
             // 
             // dtpNgaydi
             // 
@@ -233,9 +215,10 @@
             this.txtSonguoi.Location = new System.Drawing.Point(20, 173);
             this.txtSonguoi.Multiline = true;
             this.txtSonguoi.Name = "txtSonguoi";
-            this.txtSonguoi.ReadOnly = true;
             this.txtSonguoi.Size = new System.Drawing.Size(269, 27);
             this.txtSonguoi.TabIndex = 18;
+            this.txtSonguoi.TextChanged += new System.EventHandler(this.txtSonguoi_TextChanged);
+            this.txtSonguoi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSonguoi_KeyPress);
             // 
             // label4
             // 
@@ -257,6 +240,7 @@
             // 
             // cboLoaiphong
             // 
+            this.cboLoaiphong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoaiphong.FormattingEnabled = true;
             this.cboLoaiphong.Location = new System.Drawing.Point(20, 52);
             this.cboLoaiphong.Name = "cboLoaiphong";
@@ -281,7 +265,9 @@
             this.colDonGia});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControlPhong;
+            this.gridView1.GroupPanelText = " ";
             this.gridView1.Name = "gridView1";
+            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             // 
             // colMaLoaiPhong
             // 
@@ -290,6 +276,8 @@
             this.colMaLoaiPhong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colMaLoaiPhong.ImageOptions.Image")));
             this.colMaLoaiPhong.MinWidth = 19;
             this.colMaLoaiPhong.Name = "colMaLoaiPhong";
+            this.colMaLoaiPhong.OptionsColumn.AllowEdit = false;
+            this.colMaLoaiPhong.OptionsColumn.ReadOnly = true;
             this.colMaLoaiPhong.Visible = true;
             this.colMaLoaiPhong.VisibleIndex = 0;
             this.colMaLoaiPhong.Width = 115;
@@ -301,6 +289,8 @@
             this.colTenLoaiPhong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colTenLoaiPhong.ImageOptions.Image")));
             this.colTenLoaiPhong.MinWidth = 19;
             this.colTenLoaiPhong.Name = "colTenLoaiPhong";
+            this.colTenLoaiPhong.OptionsColumn.AllowEdit = false;
+            this.colTenLoaiPhong.OptionsColumn.ReadOnly = true;
             this.colTenLoaiPhong.Visible = true;
             this.colTenLoaiPhong.VisibleIndex = 1;
             this.colTenLoaiPhong.Width = 107;
@@ -312,6 +302,8 @@
             this.colSoNguoiToiDa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colSoNguoiToiDa.ImageOptions.Image")));
             this.colSoNguoiToiDa.MinWidth = 19;
             this.colSoNguoiToiDa.Name = "colSoNguoiToiDa";
+            this.colSoNguoiToiDa.OptionsColumn.AllowEdit = false;
+            this.colSoNguoiToiDa.OptionsColumn.ReadOnly = true;
             this.colSoNguoiToiDa.Visible = true;
             this.colSoNguoiToiDa.VisibleIndex = 2;
             this.colSoNguoiToiDa.Width = 108;
@@ -319,10 +311,14 @@
             // colDonGia
             // 
             this.colDonGia.Caption = "Đơn giá";
+            this.colDonGia.DisplayFormat.FormatString = "c0";
+            this.colDonGia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colDonGia.FieldName = "DonGia";
             this.colDonGia.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colDonGia.ImageOptions.Image")));
             this.colDonGia.MinWidth = 19;
             this.colDonGia.Name = "colDonGia";
+            this.colDonGia.OptionsColumn.AllowEdit = false;
+            this.colDonGia.OptionsColumn.ReadOnly = true;
             this.colDonGia.Visible = true;
             this.colDonGia.VisibleIndex = 3;
             this.colDonGia.Width = 106;
@@ -378,6 +374,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmDatPhongMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmDatPhongMain_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).EndInit();
@@ -391,7 +388,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton icoBtnHuy;
-        private FontAwesome.Sharp.IconButton icoBtnSua;
         private FontAwesome.Sharp.IconButton icoBtnDatphong;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TextBox txtTimphong;

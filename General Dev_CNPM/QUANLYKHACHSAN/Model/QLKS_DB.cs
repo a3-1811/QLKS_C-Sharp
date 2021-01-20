@@ -22,7 +22,6 @@ namespace QUANLYKHACHSAN.Model
         public virtual DbSet<KHACH_HANG> KHACH_HANG { get; set; }
         public virtual DbSet<LOAI_PHONG> LOAI_PHONG { get; set; }
         public virtual DbSet<LOAI_TINH_TRANG> LOAI_TINH_TRANG { get; set; }
-        public virtual DbSet<LOAI_THANH_TOAN> LOAI_THANH_TOAN { get; set; }
         public virtual DbSet<NGUOI_DUNG> NGUOI_DUNG { get; set; }
         public virtual DbSet<NHAN_VIEN> NHAN_VIEN { get; set; }
         public virtual DbSet<PHIEU_SUA_CHUA> PHIEU_SUA_CHUA { get; set; }
@@ -42,16 +41,12 @@ namespace QUANLYKHACHSAN.Model
                 .Property(e => e.MaThuePhong)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CHI_TIET_HOA_DON>()
-                .Property(e => e.MaThanhToan)
-                .IsUnicode(false);
-
             modelBuilder.Entity<CHI_TIET_PHIEU_SUA_CHUA>()
                 .Property(e => e.MaPhieuSua)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CHI_TIET_PHIEU_SUA_CHUA>()
-                .Property(e => e.MaPhong)
+                .Property(e => e.MaThietBi)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CHI_TIET_PHIEU_THUE_PHONG>()
@@ -101,8 +96,16 @@ namespace QUANLYKHACHSAN.Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<HOA_DON>()
+                .Property(e => e.MaThuePhong)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<HOA_DON>()
                 .Property(e => e.MaNhanVien)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<HOA_DON>()
+                .HasOptional(e => e.CHI_TIET_HOA_DON)
+                .WithRequired(e => e.HOA_DON);
 
             modelBuilder.Entity<KHACH_HANG>()
                 .Property(e => e.MaKhachHang)
@@ -138,10 +141,6 @@ namespace QUANLYKHACHSAN.Model
                 .HasMany(e => e.PHONG)
                 .WithOptional(e => e.LOAI_TINH_TRANG)
                 .WillCascadeOnDelete();
-
-            modelBuilder.Entity<LOAI_THANH_TOAN>()
-                .Property(e => e.MaThanhToan)
-                .IsUnicode(false);
 
             modelBuilder.Entity<NGUOI_DUNG>()
                 .Property(e => e.MaChucVu)
@@ -183,7 +182,7 @@ namespace QUANLYKHACHSAN.Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEU_SUA_CHUA>()
-                .Property(e => e.MaThietBi)
+                .Property(e => e.MaPhong)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEU_THUE_PHONG>()
@@ -199,7 +198,7 @@ namespace QUANLYKHACHSAN.Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEU_THUE_PHONG>()
-                .HasMany(e => e.CHI_TIET_HOA_DON)
+                .HasMany(e => e.HOA_DON)
                 .WithRequired(e => e.PHIEU_THUE_PHONG)
                 .WillCascadeOnDelete(false);
 
@@ -228,9 +227,9 @@ namespace QUANLYKHACHSAN.Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<THIET_BI>()
-                .HasMany(e => e.PHIEU_SUA_CHUA)
-                .WithOptional(e => e.THIET_BI)
-                .WillCascadeOnDelete();
+                .HasMany(e => e.CHI_TIET_PHIEU_SUA_CHUA)
+                .WithRequired(e => e.THIET_BI)
+                .WillCascadeOnDelete(false);
         }
     }
 }
