@@ -51,22 +51,27 @@
             this.icoBtnThem = new FontAwesome.Sharp.IconButton();
             this.icoBtnXoa = new FontAwesome.Sharp.IconButton();
             this.icoBtnSua = new FontAwesome.Sharp.IconButton();
-            this.HoTen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.NgayKetThuc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaPhong = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayKetThuc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMaPhong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.NgayBatDau = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaThietBi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TenThietBi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PhiSuaChua = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.NguyenNhan = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.GhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayBatDau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPhiSuaChua = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNguyenNhan = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlNhanVien = new DevExpress.XtraGrid.GridControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.colTenThietBi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coTenThietBi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MaPhieuSua = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).BeginInit();
@@ -126,6 +131,7 @@
             this.txtPhisuachua.Name = "txtPhisuachua";
             this.txtPhisuachua.Size = new System.Drawing.Size(278, 26);
             this.txtPhisuachua.TabIndex = 44;
+            this.txtPhisuachua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhisuachua_KeyPress);
             // 
             // label8
             // 
@@ -156,6 +162,7 @@
             // 
             // cboMathietbi
             // 
+            this.cboMathietbi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMathietbi.FormattingEnabled = true;
             this.cboMathietbi.Location = new System.Drawing.Point(21, 270);
             this.cboMathietbi.Margin = new System.Windows.Forms.Padding(2);
@@ -174,6 +181,7 @@
             // 
             // cboManhanvien
             // 
+            this.cboManhanvien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboManhanvien.FormattingEnabled = true;
             this.cboManhanvien.Location = new System.Drawing.Point(22, 216);
             this.cboManhanvien.Margin = new System.Windows.Forms.Padding(2);
@@ -226,6 +234,7 @@
             // 
             // cboMaphong
             // 
+            this.cboMaphong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMaphong.FormattingEnabled = true;
             this.cboMaphong.Location = new System.Drawing.Point(21, 53);
             this.cboMaphong.Margin = new System.Windows.Forms.Padding(2);
@@ -282,6 +291,7 @@
             this.icoBtnThem.Text = "Thêm";
             this.icoBtnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icoBtnThem.UseVisualStyleBackColor = true;
+            this.icoBtnThem.Click += new System.EventHandler(this.icoBtnThem_Click);
             // 
             // icoBtnXoa
             // 
@@ -302,6 +312,7 @@
             this.icoBtnXoa.Text = "Xoá";
             this.icoBtnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icoBtnXoa.UseVisualStyleBackColor = true;
+            this.icoBtnXoa.Click += new System.EventHandler(this.icoBtnXoa_Click);
             // 
             // icoBtnSua
             // 
@@ -322,112 +333,118 @@
             this.icoBtnSua.Text = "Sửa";
             this.icoBtnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icoBtnSua.UseVisualStyleBackColor = true;
+            this.icoBtnSua.Click += new System.EventHandler(this.icoBtnSua_Click);
             // 
-            // HoTen
+            // colHoTen
             // 
-            this.HoTen.Caption = "Tên Nhân Viên";
-            this.HoTen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("HoTen.ImageOptions.Image")));
-            this.HoTen.MinWidth = 19;
-            this.HoTen.Name = "HoTen";
-            this.HoTen.Visible = true;
-            this.HoTen.VisibleIndex = 3;
-            this.HoTen.Width = 133;
+            this.colHoTen.Caption = "Tên Nhân Viên";
+            this.colHoTen.FieldName = "HoTen";
+            this.colHoTen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colHoTen.ImageOptions.Image")));
+            this.colHoTen.MinWidth = 19;
+            this.colHoTen.Name = "colHoTen";
+            this.colHoTen.OptionsColumn.AllowEdit = false;
+            this.colHoTen.OptionsColumn.ReadOnly = true;
+            this.colHoTen.Visible = true;
+            this.colHoTen.VisibleIndex = 3;
+            this.colHoTen.Width = 107;
             // 
-            // NgayKetThuc
+            // colNgayKetThuc
             // 
-            this.NgayKetThuc.Caption = "Ngày Kết Thúc";
-            this.NgayKetThuc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("NgayKetThuc.ImageOptions.Image")));
-            this.NgayKetThuc.MinWidth = 19;
-            this.NgayKetThuc.Name = "NgayKetThuc";
-            this.NgayKetThuc.Visible = true;
-            this.NgayKetThuc.VisibleIndex = 2;
-            this.NgayKetThuc.Width = 113;
+            this.colNgayKetThuc.Caption = "Ngày Kết Thúc";
+            this.colNgayKetThuc.FieldName = "NgayKetThuc";
+            this.colNgayKetThuc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colNgayKetThuc.ImageOptions.Image")));
+            this.colNgayKetThuc.MinWidth = 19;
+            this.colNgayKetThuc.Name = "colNgayKetThuc";
+            this.colNgayKetThuc.OptionsColumn.AllowEdit = false;
+            this.colNgayKetThuc.OptionsColumn.ReadOnly = true;
+            this.colNgayKetThuc.Visible = true;
+            this.colNgayKetThuc.VisibleIndex = 2;
+            this.colNgayKetThuc.Width = 91;
             // 
-            // MaPhong
+            // colMaPhong
             // 
-            this.MaPhong.Caption = "Mã Phòng";
-            this.MaPhong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("MaPhong.ImageOptions.Image")));
-            this.MaPhong.MinWidth = 19;
-            this.MaPhong.Name = "MaPhong";
-            this.MaPhong.Visible = true;
-            this.MaPhong.VisibleIndex = 0;
-            this.MaPhong.Width = 106;
+            this.colMaPhong.Caption = "Mã Phòng";
+            this.colMaPhong.FieldName = "MaPhong";
+            this.colMaPhong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colMaPhong.ImageOptions.Image")));
+            this.colMaPhong.MinWidth = 19;
+            this.colMaPhong.Name = "colMaPhong";
+            this.colMaPhong.OptionsColumn.AllowEdit = false;
+            this.colMaPhong.OptionsColumn.ReadOnly = true;
+            this.colMaPhong.Visible = true;
+            this.colMaPhong.VisibleIndex = 0;
+            this.colMaPhong.Width = 85;
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.MaPhong,
-            this.NgayBatDau,
-            this.NgayKetThuc,
-            this.HoTen,
-            this.MaThietBi,
-            this.TenThietBi,
-            this.PhiSuaChua,
-            this.NguyenNhan,
-            this.GhiChu});
+            this.colMaPhong,
+            this.colNgayBatDau,
+            this.colNgayKetThuc,
+            this.colHoTen,
+            this.colPhiSuaChua,
+            this.colNguyenNhan,
+            this.colGhiChu,
+            this.coTenThietBi,
+            this.MaPhieuSua});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControlNhanVien;
+            this.gridView1.GroupPanelText = " ";
             this.gridView1.Name = "gridView1";
+            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             // 
-            // NgayBatDau
+            // colNgayBatDau
             // 
-            this.NgayBatDau.Caption = "Ngày Bắt Đầu";
-            this.NgayBatDau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("NgayBatDau.ImageOptions.Image")));
-            this.NgayBatDau.MinWidth = 19;
-            this.NgayBatDau.Name = "NgayBatDau";
-            this.NgayBatDau.Visible = true;
-            this.NgayBatDau.VisibleIndex = 1;
-            this.NgayBatDau.Width = 118;
+            this.colNgayBatDau.Caption = "Ngày Bắt Đầu";
+            this.colNgayBatDau.FieldName = "NgayBatDau";
+            this.colNgayBatDau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colNgayBatDau.ImageOptions.Image")));
+            this.colNgayBatDau.MinWidth = 19;
+            this.colNgayBatDau.Name = "colNgayBatDau";
+            this.colNgayBatDau.OptionsColumn.AllowEdit = false;
+            this.colNgayBatDau.OptionsColumn.ReadOnly = true;
+            this.colNgayBatDau.Visible = true;
+            this.colNgayBatDau.VisibleIndex = 1;
+            this.colNgayBatDau.Width = 94;
             // 
-            // MaThietBi
+            // colPhiSuaChua
             // 
-            this.MaThietBi.Caption = "Mã Thiết Bị";
-            this.MaThietBi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("MaThietBi.ImageOptions.Image")));
-            this.MaThietBi.MinWidth = 19;
-            this.MaThietBi.Name = "MaThietBi";
-            this.MaThietBi.Visible = true;
-            this.MaThietBi.VisibleIndex = 4;
-            this.MaThietBi.Width = 101;
+            this.colPhiSuaChua.Caption = "Phí Sửa Chữa";
+            this.colPhiSuaChua.DisplayFormat.FormatString = "c0";
+            this.colPhiSuaChua.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colPhiSuaChua.FieldName = "PhiSuaChua";
+            this.colPhiSuaChua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colPhiSuaChua.ImageOptions.Image")));
+            this.colPhiSuaChua.MinWidth = 19;
+            this.colPhiSuaChua.Name = "colPhiSuaChua";
+            this.colPhiSuaChua.OptionsColumn.AllowEdit = false;
+            this.colPhiSuaChua.OptionsColumn.ReadOnly = true;
+            this.colPhiSuaChua.Visible = true;
+            this.colPhiSuaChua.VisibleIndex = 4;
+            this.colPhiSuaChua.Width = 100;
             // 
-            // TenThietBi
+            // colNguyenNhan
             // 
-            this.TenThietBi.Caption = "Tên Thiết Bị";
-            this.TenThietBi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("TenThietBi.ImageOptions.Image")));
-            this.TenThietBi.MinWidth = 19;
-            this.TenThietBi.Name = "TenThietBi";
-            this.TenThietBi.Visible = true;
-            this.TenThietBi.VisibleIndex = 5;
-            this.TenThietBi.Width = 118;
+            this.colNguyenNhan.Caption = "Nguyên Nhân";
+            this.colNguyenNhan.FieldName = "NguyenNhan";
+            this.colNguyenNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colNguyenNhan.ImageOptions.Image")));
+            this.colNguyenNhan.MinWidth = 19;
+            this.colNguyenNhan.Name = "colNguyenNhan";
+            this.colNguyenNhan.OptionsColumn.AllowEdit = false;
+            this.colNguyenNhan.OptionsColumn.ReadOnly = true;
+            this.colNguyenNhan.Visible = true;
+            this.colNguyenNhan.VisibleIndex = 5;
+            this.colNguyenNhan.Width = 98;
             // 
-            // PhiSuaChua
+            // colGhiChu
             // 
-            this.PhiSuaChua.Caption = "Phí Sửa Chữa";
-            this.PhiSuaChua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("PhiSuaChua.ImageOptions.Image")));
-            this.PhiSuaChua.MinWidth = 19;
-            this.PhiSuaChua.Name = "PhiSuaChua";
-            this.PhiSuaChua.Visible = true;
-            this.PhiSuaChua.VisibleIndex = 6;
-            this.PhiSuaChua.Width = 124;
-            // 
-            // NguyenNhan
-            // 
-            this.NguyenNhan.Caption = "Nguyên Nhân";
-            this.NguyenNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("NguyenNhan.ImageOptions.Image")));
-            this.NguyenNhan.MinWidth = 19;
-            this.NguyenNhan.Name = "NguyenNhan";
-            this.NguyenNhan.Visible = true;
-            this.NguyenNhan.VisibleIndex = 7;
-            this.NguyenNhan.Width = 122;
-            // 
-            // GhiChu
-            // 
-            this.GhiChu.Caption = "Ghi Chú";
-            this.GhiChu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("GhiChu.ImageOptions.Image")));
-            this.GhiChu.MinWidth = 19;
-            this.GhiChu.Name = "GhiChu";
-            this.GhiChu.Visible = true;
-            this.GhiChu.VisibleIndex = 8;
-            this.GhiChu.Width = 199;
+            this.colGhiChu.Caption = "Ghi Chú";
+            this.colGhiChu.FieldName = "GhiChu";
+            this.colGhiChu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colGhiChu.ImageOptions.Image")));
+            this.colGhiChu.MinWidth = 19;
+            this.colGhiChu.Name = "colGhiChu";
+            this.colGhiChu.OptionsColumn.AllowEdit = false;
+            this.colGhiChu.OptionsColumn.ReadOnly = true;
+            this.colGhiChu.Visible = true;
+            this.colGhiChu.VisibleIndex = 6;
+            this.colGhiChu.Width = 87;
             // 
             // gridControlNhanVien
             // 
@@ -456,6 +473,67 @@
             this.panel1.Size = new System.Drawing.Size(1274, 62);
             this.panel1.TabIndex = 7;
             // 
+            // colTenThietBi
+            // 
+            this.colTenThietBi.Caption = "Tên Thiết Bị";
+            this.colTenThietBi.FieldName = "TenThietBi";
+            this.colTenThietBi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colTenThietBi.ImageOptions.Image")));
+            this.colTenThietBi.MinWidth = 19;
+            this.colTenThietBi.Name = "colTenThietBi";
+            this.colTenThietBi.OptionsColumn.AllowEdit = false;
+            this.colTenThietBi.OptionsColumn.ReadOnly = true;
+            this.colTenThietBi.Visible = true;
+            this.colTenThietBi.VisibleIndex = 4;
+            this.colTenThietBi.Width = 118;
+            // 
+            // coTenThietBi
+            // 
+            this.coTenThietBi.Caption = "Tên Thiết Bị";
+            this.coTenThietBi.FieldName = "TenThietBi";
+            this.coTenThietBi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("coTenThietBi.ImageOptions.SvgImage")));
+            this.coTenThietBi.Name = "coTenThietBi";
+            this.coTenThietBi.Visible = true;
+            this.coTenThietBi.VisibleIndex = 7;
+            this.coTenThietBi.Width = 108;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "gridColumn1";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 7;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Tên Thiết Bị";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 7;
+            // 
+            // MaPhieuSua
+            // 
+            this.MaPhieuSua.Caption = "Mã Sửa Chữa";
+            this.MaPhieuSua.FieldName = "MaPhieuSua";
+            this.MaPhieuSua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("MaPhieuSua.ImageOptions.SvgImage")));
+            this.MaPhieuSua.Name = "MaPhieuSua";
+            this.MaPhieuSua.Visible = true;
+            this.MaPhieuSua.VisibleIndex = 8;
+            this.MaPhieuSua.Width = 102;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Mã Sửa Chữa";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 8;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Mã Sửa Chữa";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 8;
+            // 
             // frmPhieusuachua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,6 +544,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPhieusuachua";
             this.Size = new System.Drawing.Size(1274, 656);
+            this.Load += new System.EventHandler(this.frmPhieusuachua_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -486,11 +565,11 @@
         private FontAwesome.Sharp.IconButton icoBtnThem;
         private FontAwesome.Sharp.IconButton icoBtnXoa;
         private FontAwesome.Sharp.IconButton icoBtnSua;
-        private DevExpress.XtraGrid.Columns.GridColumn HoTen;
-        private DevExpress.XtraGrid.Columns.GridColumn NgayKetThuc;
-        private DevExpress.XtraGrid.Columns.GridColumn MaPhong;
+        private DevExpress.XtraGrid.Columns.GridColumn colHoTen;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayKetThuc;
+        private DevExpress.XtraGrid.Columns.GridColumn colMaPhong;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn NgayBatDau;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayBatDau;
         private DevExpress.XtraGrid.GridControl gridControlNhanVien;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
@@ -508,11 +587,16 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPhisuachua;
         private System.Windows.Forms.Label label8;
-        private DevExpress.XtraGrid.Columns.GridColumn MaThietBi;
-        private DevExpress.XtraGrid.Columns.GridColumn TenThietBi;
-        private DevExpress.XtraGrid.Columns.GridColumn PhiSuaChua;
-        private DevExpress.XtraGrid.Columns.GridColumn NguyenNhan;
-        private DevExpress.XtraGrid.Columns.GridColumn GhiChu;
+        private DevExpress.XtraGrid.Columns.GridColumn colPhiSuaChua;
+        private DevExpress.XtraGrid.Columns.GridColumn colNguyenNhan;
+        private DevExpress.XtraGrid.Columns.GridColumn colGhiChu;
         private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraGrid.Columns.GridColumn colTenThietBi;
+        private DevExpress.XtraGrid.Columns.GridColumn coTenThietBi;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn MaPhieuSua;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

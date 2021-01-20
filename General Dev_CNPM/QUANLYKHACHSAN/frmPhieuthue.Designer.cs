@@ -199,6 +199,7 @@
             this.icoBtnTraphong.Text = "Trả Phòng";
             this.icoBtnTraphong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icoBtnTraphong.UseVisualStyleBackColor = true;
+            this.icoBtnTraphong.Click += new System.EventHandler(this.icoBtnTraphong_Click);
             // 
             // icoBtnInphieuthue
             // 

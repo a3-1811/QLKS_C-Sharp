@@ -129,70 +129,78 @@ namespace QUANLYKHACHSAN
             DateTime ngayden = DateTime.Parse(dtpNgayden.Text.ToString());
             DateTime ngaydi = DateTime.Parse(dtpNgaydi.Text.ToString());
             int compareDate = DateTime.Compare(ngayden,ngaydi );
-            if (txtTimphong.Text != "" && compareDate < 0)
+            if ( txtSonguoi.Text == "")
             {
-                PHIEU_THUE_PHONG itemCuoi = getLastPT();
-
-                if(itemCuoi != null)
-                {
-                    string maMoi = convertNumbtoID(itemCuoi.MaThuePhong.Replace("TP", ""));
-                    PHIEU_THUE_PHONG phieuThue = new PHIEU_THUE_PHONG() { MaThuePhong = maMoi,MaKhachHang =cboHoTen.SelectedValue.ToString(),MaNhanVien = "NV002",NgayLap = DateTime.Now };
-                    context.PHIEU_THUE_PHONG.Add(phieuThue);
-                    context.SaveChanges();
-
-                    KHACH_HANG kh = context.KHACH_HANG.FirstOrDefault(p=>p.MaKhachHang == cboHoTen.SelectedValue.ToString());
-
-                    CHI_TIET_PHIEU_THUE_PHONG ctThuePhong = new CHI_TIET_PHIEU_THUE_PHONG()
-                    {
-                        MaThuePhong = maMoi,
-                        MaKhachHang = kh.MaKhachHang,
-                        MaPhong = txtTimphong.Text,
-                        HoTenKhachHang = cboHoTen.Text,
-                        CMND = kh.CMND,
-                        NgayNhan = DateTime.Parse(dtpNgayden.Text.ToString()),
-                        NgayTraDuKien = DateTime.Parse(dtpNgaydi.Text.ToString()),
-                        NgayTra = null
-                    };
-                    context.CHI_TIET_PHIEU_THUE_PHONG.Add(ctThuePhong);
-                    context.SaveChanges();
-
-                    PHONG phong = context.PHONG.FirstOrDefault(p=>p.MaPhong == txtTimphong.Text);
-                    phong.MaLoaiTinhTrangPhong = "TP003";
-                    context.SaveChanges();
-
-                    MessageBox.Show("Đặt phòng thành công!");
-                }else
-                {
-                    PHIEU_THUE_PHONG phieuThue = new PHIEU_THUE_PHONG() { MaThuePhong = "PT001", MaKhachHang = cboHoTen.SelectedValue.ToString(), MaNhanVien = "NV002", NgayLap = DateTime.Now };
-                    context.PHIEU_THUE_PHONG.Add(phieuThue);
-                    context.SaveChanges();
-
-                    KHACH_HANG kh = context.KHACH_HANG.FirstOrDefault(p => p.MaKhachHang == cboHoTen.SelectedValue.ToString());
-
-                    CHI_TIET_PHIEU_THUE_PHONG ctThuePhong = new CHI_TIET_PHIEU_THUE_PHONG()
-                    {
-                        MaThuePhong = "PT001",
-                        MaKhachHang = kh.MaKhachHang,
-                        MaPhong = txtTimphong.Text,
-                        HoTenKhachHang = cboHoTen.Text,
-                        CMND = kh.CMND,
-                        NgayNhan = DateTime.Parse(dtpNgayden.Text.ToString()),
-                        NgayTraDuKien = DateTime.Parse(dtpNgaydi.Text.ToString()),
-                        NgayTra = null
-                    };
-                    context.CHI_TIET_PHIEU_THUE_PHONG.Add(ctThuePhong);
-                    context.SaveChanges();
-
-                    PHONG phong = context.PHONG.FirstOrDefault(p => p.MaPhong == txtTimphong.Text);
-                    phong.MaLoaiTinhTrangPhong = "TP003";
-                    context.SaveChanges();
-
-                    MessageBox.Show("Đặt phòng thành công!");
-                }
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
             }
-            else if(compareDate >= 0)
+            else
             {
-                MessageBox.Show("Ngày đến không thể lớn hơn bằng ngày đi");
+                if (txtTimphong.Text != "" && compareDate < 0)
+                {
+                    PHIEU_THUE_PHONG itemCuoi = getLastPT();
+
+                    if (itemCuoi != null)
+                    {
+                        string maMoi = convertNumbtoID(itemCuoi.MaThuePhong.Replace("TP", ""));
+                        PHIEU_THUE_PHONG phieuThue = new PHIEU_THUE_PHONG() { MaThuePhong = maMoi, MaKhachHang = cboHoTen.SelectedValue.ToString(), MaNhanVien = "NV002", NgayLap = DateTime.Now };
+                        context.PHIEU_THUE_PHONG.Add(phieuThue);
+                        context.SaveChanges();
+
+                        KHACH_HANG kh = context.KHACH_HANG.FirstOrDefault(p => p.MaKhachHang == cboHoTen.SelectedValue.ToString());
+
+                        CHI_TIET_PHIEU_THUE_PHONG ctThuePhong = new CHI_TIET_PHIEU_THUE_PHONG()
+                        {
+                            MaThuePhong = maMoi,
+                            MaKhachHang = kh.MaKhachHang,
+                            MaPhong = txtTimphong.Text,
+                            HoTenKhachHang = cboHoTen.Text,
+                            CMND = kh.CMND,
+                            NgayNhan = DateTime.Parse(dtpNgayden.Text.ToString()),
+                            NgayTraDuKien = DateTime.Parse(dtpNgaydi.Text.ToString()),
+                            NgayTra = null
+                        };
+                        context.CHI_TIET_PHIEU_THUE_PHONG.Add(ctThuePhong);
+                        context.SaveChanges();
+
+                        PHONG phong = context.PHONG.FirstOrDefault(p => p.MaPhong == txtTimphong.Text);
+                        phong.MaLoaiTinhTrangPhong = "TP003";
+                        context.SaveChanges();
+
+                        MessageBox.Show("Đặt phòng thành công!");
+                    }
+                    else
+                    {
+                        PHIEU_THUE_PHONG phieuThue = new PHIEU_THUE_PHONG() { MaThuePhong = "PT001", MaKhachHang = cboHoTen.SelectedValue.ToString(), MaNhanVien = "NV002", NgayLap = DateTime.Now };
+                        context.PHIEU_THUE_PHONG.Add(phieuThue);
+                        context.SaveChanges();
+
+                        KHACH_HANG kh = context.KHACH_HANG.FirstOrDefault(p => p.MaKhachHang == cboHoTen.SelectedValue.ToString());
+
+                        CHI_TIET_PHIEU_THUE_PHONG ctThuePhong = new CHI_TIET_PHIEU_THUE_PHONG()
+                        {
+                            MaThuePhong = "PT001",
+                            MaKhachHang = kh.MaKhachHang,
+                            MaPhong = txtTimphong.Text,
+                            HoTenKhachHang = cboHoTen.Text,
+                            CMND = kh.CMND,
+                            NgayNhan = DateTime.Parse(dtpNgayden.Text.ToString()),
+                            NgayTraDuKien = DateTime.Parse(dtpNgaydi.Text.ToString()),
+                            NgayTra = null
+                        };
+                        context.CHI_TIET_PHIEU_THUE_PHONG.Add(ctThuePhong);
+                        context.SaveChanges();
+
+                        PHONG phong = context.PHONG.FirstOrDefault(p => p.MaPhong == txtTimphong.Text);
+                        phong.MaLoaiTinhTrangPhong = "TP003";
+                        context.SaveChanges();
+
+                        MessageBox.Show("Đặt phòng thành công!");
+                    }
+                }
+                else if (compareDate >= 0)
+                {
+                    MessageBox.Show("Ngày đến không thể lớn hơn bằng ngày đi");
+                }
             }
         }
     }
