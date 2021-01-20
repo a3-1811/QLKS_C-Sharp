@@ -28,7 +28,6 @@ namespace QUANLYKHACHSAN.Model
         public virtual DbSet<PHIEU_THUE_PHONG> PHIEU_THUE_PHONG { get; set; }
         public virtual DbSet<PHONG> PHONG { get; set; }
         public virtual DbSet<SO_HUU_THIET_BI> SO_HUU_THIET_BI { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<THIET_BI> THIET_BI { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -46,7 +45,7 @@ namespace QUANLYKHACHSAN.Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<CHI_TIET_PHIEU_SUA_CHUA>()
-                .Property(e => e.MaPhong)
+                .Property(e => e.MaThietBi)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CHI_TIET_PHIEU_THUE_PHONG>()
@@ -182,7 +181,7 @@ namespace QUANLYKHACHSAN.Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEU_SUA_CHUA>()
-                .Property(e => e.MaThietBi)
+                .Property(e => e.MaPhong)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEU_THUE_PHONG>()
@@ -227,9 +226,9 @@ namespace QUANLYKHACHSAN.Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<THIET_BI>()
-                .HasMany(e => e.PHIEU_SUA_CHUA)
-                .WithOptional(e => e.THIET_BI)
-                .WillCascadeOnDelete();
+                .HasMany(e => e.CHI_TIET_PHIEU_SUA_CHUA)
+                .WithRequired(e => e.THIET_BI)
+                .WillCascadeOnDelete(false);
         }
     }
 }

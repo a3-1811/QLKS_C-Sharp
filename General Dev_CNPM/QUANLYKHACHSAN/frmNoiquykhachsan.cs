@@ -22,7 +22,8 @@ namespace QUANLYKHACHSAN
         {
             try
             {
-                //pdfViewer1.NavigationPaneInitialVisibility = false;
+                pdfViewer1.NavigationPaneVisibility = DevExpress.XtraPdfViewer.PdfNavigationPaneVisibility.Hidden;
+                pdfViewer1.NavigationPaneInitialVisibility = DevExpress.XtraPdfViewer.PdfNavigationPaneVisibility.Hidden;
                 pdfViewer1.Enabled = true;
                 pdfViewer1.ReadOnly = true;
                 pdfViewer1.LoadDocument(@"..\..\noiquy.pdf");

@@ -86,7 +86,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Doanhthu.cs" />
     <Compile Include="frmDangnhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,12 +121,6 @@
     </Compile>
     <Compile Include="frmKhachhangthanthiet.Designer.cs">
       <DependentUpon>frmKhachhangthanthiet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLienhe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="frmLienhe.Designer.cs">
-      <DependentUpon>frmLienhe.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -200,7 +193,6 @@
     <Compile Include="Model\PHONG.cs" />
     <Compile Include="Model\QLKS_DB.cs" />
     <Compile Include="Model\SO_HUU_THIET_BI.cs" />
-    <Compile Include="Model\sysdiagrams.cs" />
     <Compile Include="Model\THIET_BI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -215,6 +207,12 @@
     </Compile>
     <Compile Include="frmDoanhthu.Designer.cs">
       <DependentUpon>frmDoanhthu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLienhe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmLienhe.Designer.cs">
+      <DependentUpon>frmLienhe.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmDangnhap.resx">
       <DependentUpon>frmDangnhap.cs</DependentUpon>
@@ -299,8 +297,9 @@
   <ItemGroup>
     <None Include="Resources\SUNRISEHOTEL_LOGO.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resource\" />
+    <None Include="Resources\CONTACT.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

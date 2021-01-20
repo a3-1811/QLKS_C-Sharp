@@ -16,12 +16,12 @@ namespace QUANLYKHACHSAN.Model
         [Key]
         [Column(Order = 1)]
         [StringLength(5)]
-        public string MaPhong { get; set; }
+        public string MaThietBi { get; set; }
 
-        public double? PhiSuaChua { get; set; }
+        public long? PhiSuaChua { get; set; }
+
+        public virtual THIET_BI THIET_BI { get; set; }
 
         public virtual PHIEU_SUA_CHUA PHIEU_SUA_CHUA { get; set; }
-
-        public virtual PHONG PHONG { get; set; }
     }
 }

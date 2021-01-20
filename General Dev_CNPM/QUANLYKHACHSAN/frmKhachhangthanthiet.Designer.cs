@@ -90,15 +90,19 @@
             this.colDienThoai});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControlKhachhangthanthiet;
+            this.gridView1.GroupPanelText = " ";
             this.gridView1.Name = "gridView1";
             // 
             // colMaKhachHang
             // 
+            this.colMaKhachHang.AppearanceCell.Options.UseTextOptions = true;
+            this.colMaKhachHang.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMaKhachHang.Caption = "Mã Khách Hàng";
             this.colMaKhachHang.FieldName = "MaKhachHang";
             this.colMaKhachHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colMaKhachHang.ImageOptions.Image")));
             this.colMaKhachHang.MinWidth = 19;
             this.colMaKhachHang.Name = "colMaKhachHang";
+            this.colMaKhachHang.OptionsColumn.ReadOnly = true;
             this.colMaKhachHang.Visible = true;
             this.colMaKhachHang.VisibleIndex = 0;
             this.colMaKhachHang.Width = 102;
@@ -107,31 +111,38 @@
             // 
             this.colTenKhachHang.Caption = "Tên Khách Hàng";
             this.colTenKhachHang.FieldName = "TenKhachHang";
-            this.colTenKhachHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("TenKhachHang.ImageOptions.Image")));
+            this.colTenKhachHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colTenKhachHang.ImageOptions.Image")));
             this.colTenKhachHang.MinWidth = 19;
             this.colTenKhachHang.Name = "colTenKhachHang";
+            this.colTenKhachHang.OptionsColumn.ReadOnly = true;
             this.colTenKhachHang.Visible = true;
             this.colTenKhachHang.VisibleIndex = 1;
             this.colTenKhachHang.Width = 122;
             // 
             // colSoLuotDen
             // 
+            this.colSoLuotDen.AppearanceCell.Options.UseTextOptions = true;
+            this.colSoLuotDen.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colSoLuotDen.Caption = "Số Lượt Đến";
             this.colSoLuotDen.FieldName = "SoLuotDen";
-            this.colSoLuotDen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("SoLuotDen.ImageOptions.Image")));
+            this.colSoLuotDen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colSoLuotDen.ImageOptions.Image")));
             this.colSoLuotDen.MinWidth = 19;
             this.colSoLuotDen.Name = "colSoLuotDen";
+            this.colSoLuotDen.OptionsColumn.ReadOnly = true;
             this.colSoLuotDen.Visible = true;
             this.colSoLuotDen.VisibleIndex = 3;
             this.colSoLuotDen.Width = 100;
             // 
             // colLoaiHoiVien
             // 
+            this.colLoaiHoiVien.AppearanceCell.Options.UseTextOptions = true;
+            this.colLoaiHoiVien.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colLoaiHoiVien.Caption = "Loại Hội Viên";
             this.colLoaiHoiVien.FieldName = "LoaiHoiVien";
-            this.colLoaiHoiVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("LoaiHoiVien.ImageOptions.Image")));
+            this.colLoaiHoiVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colLoaiHoiVien.ImageOptions.Image")));
             this.colLoaiHoiVien.MinWidth = 19;
             this.colLoaiHoiVien.Name = "colLoaiHoiVien";
+            this.colLoaiHoiVien.OptionsColumn.ReadOnly = true;
             this.colLoaiHoiVien.Visible = true;
             this.colLoaiHoiVien.VisibleIndex = 4;
             this.colLoaiHoiVien.Width = 108;
@@ -139,21 +150,27 @@
             // colTongHoaDon
             // 
             this.colTongHoaDon.Caption = "Tổng Hóa Đơn";
+            this.colTongHoaDon.DisplayFormat.FormatString = "c0";
+            this.colTongHoaDon.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTongHoaDon.FieldName = "TongHoaDon";
-            this.colTongHoaDon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("TongHoaDon.ImageOptions.Image")));
+            this.colTongHoaDon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colTongHoaDon.ImageOptions.Image")));
             this.colTongHoaDon.MinWidth = 19;
             this.colTongHoaDon.Name = "colTongHoaDon";
+            this.colTongHoaDon.OptionsColumn.ReadOnly = true;
             this.colTongHoaDon.Visible = true;
             this.colTongHoaDon.VisibleIndex = 5;
             this.colTongHoaDon.Width = 127;
             // 
             // colDienThoai
             // 
+            this.colDienThoai.AppearanceCell.Options.UseTextOptions = true;
+            this.colDienThoai.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDienThoai.Caption = "Điện Thoại";
             this.colDienThoai.FieldName = "DienThoai";
-            this.colDienThoai.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("DienThoai.ImageOptions.Image")));
+            this.colDienThoai.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colDienThoai.ImageOptions.Image")));
             this.colDienThoai.MinWidth = 19;
             this.colDienThoai.Name = "colDienThoai";
+            this.colDienThoai.OptionsColumn.ReadOnly = true;
             this.colDienThoai.Visible = true;
             this.colDienThoai.VisibleIndex = 2;
             this.colDienThoai.Width = 79;
